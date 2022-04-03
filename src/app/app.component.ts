@@ -72,4 +72,7 @@ export class AppComponent {
   updateData(item: string) {
     this.title = item;
   }
+  loginUser(item: any) {
+    console.warn(item);
+  }
 }

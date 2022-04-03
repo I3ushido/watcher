@@ -122,3 +122,18 @@
 <ul *ngFor="let item of list">
     <li><button (click)="removeTask(item.id)">X</button> {{item.id}} // {{item.name}} </li>
 </ul>
+
+้<h1>Template driven form (Validations)</h1>
+<form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
+    <input type="text" required #name="ngModel" email name="name" placeholder="Input Name" ngModel>
+    <br>
+    <span *ngIf="name.invalid && name.touched" style="color: red;">please input a valid value</span>
+    <br>
+    <input type="password" required #password="ngModel" minlength="3" name="password" placeholder="Input Password"
+        ngModel>
+    <br>
+    <span *ngIf="password.invalid && password.touched" style="color: red;">please input a valid value</span>
+    <br>
+    <button [disabled]="loginForm.invalid">sign in</button>
+</form>
+<button (click)="loginUser(loginForm.value)">outside sign-in</button>
